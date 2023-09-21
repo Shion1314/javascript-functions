@@ -1,0 +1,55 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myMap()</title>
+    <style>
+      textarea {
+        display: block;
+        height: 100px;
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>Input</h3>
+    <textarea id="input">[1, 2, 3]</textarea>
+
+    <h3>Argument</h3>
+    <textarea id="argument" disabled>
+// Multiply each item by 2
+myMap(array, (item) => item * 2);
+    </textarea>
+
+    <h3>Output</h3>
+    <textarea id="output" readonly></textarea>
+
+    <button id="btn">Run myMap()</button>
+
+    <script>
+      const myMap = (iterable, callback) => {
+        const result = [];
+
+        for (let i = 0; i < iterable.length; i++) {
+          result.push(callback(iterable[i], i, iterable));
+        }
+
+        return result;
+      };
+
+      const input = document.getElementById("input");
+      const output = document.getElementById("output");
+      const btn = document.getElementById("btn");
+
+      btn.addEventListener("click", () => {
+        const array = JSON.parse(input.value);
+
+        const result = myMap(array, (item) => item * 2);
+
+        output.value = JSON.stringify(result);
+      });
+    </script>
+  </body>
+</html>
