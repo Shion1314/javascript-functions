@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myIndexOf()</title>
+    <style>
+      textarea {
+        display: block;
+        height: 100px;
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>Input</h3>
+    <textarea id="input">[1, 2, 3]</textarea>
+
+    <h3>Argument</h3>
+    <textarea id="argument"></textarea>
+
+    <h3>Output</h3>
+    <textarea id="output" readonly></textarea>
+
+    <button id="btn">Run myIndexOf()</button>
+
+    <script>
+      const myIndexOf = (array, target) => {
+        for (let i=0; i < array.length; i++){
+            if (array[i] == target){
+                return i;
+            }
+        }
+        return -1;
+      };
+
+      const input = document.getElementById("input");
+      const argument = document.getElementById("argument")
+      const output = document.getElementById("output");
+      const btn = document.getElementById("btn");
+
+      btn.addEventListener("click", () => {
+        const array = JSON.parse(input.value);
+        const target = argument.value;
+
+        output.value = myIndexOf(array, target);
+      });
+    </script>
+  </body>
+</html>
