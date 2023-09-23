@@ -1,0 +1,17 @@
+
+button {
+    height: 50px ;
+    width: 50%;
+    background-color: #080d10;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+input {
+    position : center;
+    display: block;
+    height: 50px;
+    margin-bottom: 1rem;
+    width: 50%;
+}
