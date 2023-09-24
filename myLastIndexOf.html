@@ -24,11 +24,14 @@
     <h3>Argument</h3>
     <textarea id="argument" disabled>
 Returns the index of the last occurrence of the specified value, or -1 if the value is not found.
-array.lastIndexOf(element, fromIndex)
-
-array: ["Apple", "Banana", "Orange", "Apple", "Grapes"]
-element: user input
-fromIndex: searching backward for element in array
+function myLastIndexOf(array, element, fromIndex = array.length - 1) {
+    for (let i = fromIndex; i >= 0; i--) {
+        if (array[i] === element) {
+            return i;
+        }
+    }
+    return -1;
+}
     </textarea>
 
     <h3>Output</h3>
