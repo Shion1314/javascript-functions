@@ -52,6 +52,7 @@
 
 const mySome = (arr, callback) => {
   for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i])
     if (callback(arr[i], i, arr) === true) {
       return true;
     }
@@ -65,7 +66,10 @@ const mySome = (arr, callback) => {
   const user = document.getElementById("User_input")
   button_1.addEventListener('click', () => {
   
-    const result =mySome(input.value, (val) => val === user.value);
+   // const result =mySome(input.value, (val) => val === user.value); need to JSON.parse() to make an actual array 
+   // following the syntax rules. it wouldn't include "[" as a part of array.
+   //paraseInt is neccessary to convert user.value to integer
+   const result =mySome(JSON.parse(input.value), (val) => val === parseInt(user.value)); 
     output.value = result;
   });
   
