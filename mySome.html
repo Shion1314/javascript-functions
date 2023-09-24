@@ -53,7 +53,7 @@
 const mySome = (arr, callback) => {
   for (let i = 0; i < arr.length; i++) {
     console.log(arr[i])
-    if (callback(arr[i], i, arr) === true) {
+    if (callback(arr[i]) === true) {
       return true;
     }
   }
