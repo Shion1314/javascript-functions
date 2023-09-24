@@ -36,7 +36,7 @@
   <h3>Result Div</h3>
   <input type="text" id="output" readonly></input>
 
-  <button id="button_1">mySome()</button>
+  <button id="button_1">myEvery()</button>
   <!-- <script src="myEvery.js"></script>
     <link rel="stylesheet" href="mySome.css"> -->
 
@@ -44,7 +44,7 @@
     const myEvery = (arr, callback) => {
       var result = true;
       for (let i = 0; i < arr.length; i++) {
-        if (callback(arr[i], i, arr) !== true) {
+        if (callback(arr[i]) !== true) {
           result = false;
         }
       }
