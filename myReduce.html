@@ -56,7 +56,7 @@
     const button_1 = document.getElementById("button_1");
     const user = document.getElementById("User_input")
     button_1.addEventListener('click', () => {
-        result=reduce(JSON.parse(input.value),parseInt(user.value));
+        result=myReduce(JSON.parse(input.value),parseInt(user.value));
         console.log(result);
         output.value=result;
     });
