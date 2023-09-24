@@ -33,13 +33,10 @@
     <h3>Input Div</h3>
     <input type="text" id="input" value="[1, 2, 3, 4, 5]"></input>
    
-    <h3>User_input</h3>
-    <input type="text" id="User_input" value="1"></input>
-
     <h3> Arugment Div</h3>
     <textarea >
     This function take in an array and a function, the function decide which operator to run
-    mySome(array,(val)=>val==user_input) : mySome(array, callback)
+    mySome(array,(val)=>val===user_input) : mySome(array, callback)
     mySome(JSON.parse(input.value), (val) => val === parseInt(user.value)) :Testing for equal operator
     (val) => val === parseInt(user.value) :
     const callback = (val)=>{
@@ -48,6 +45,10 @@
 
     </textarea>
 
+    <h3>User_input</h3>
+    <input type="text" id="User_input" value="1"></input>
+
+   
 
     <h3>Result Div</h3>
     <input type="text"id="output" readonly></input>
