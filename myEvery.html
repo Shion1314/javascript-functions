@@ -22,6 +22,10 @@
       margin-bottom: 1rem;
       width: 50%;
     }
+    textarea{
+      height:150px;
+      width: 55%;
+    }
   </style>
 </head>
 
@@ -29,8 +33,23 @@
   <h3>Input Div</h3>
   <input type="text" id="input" value="[1, 2, 3, 4, 5]"></input>
 
-  <h3>Argument Div_User_input</h3>
+
+  <h3> Arugment Div</h3>
+  <textarea >
+  This function take in an array and a function, the function decide which operator to run
+  mySome(array,(val)=>val>user_input) : mySome(array, callback)
+  mySome(JSON.parse(input.value), (val) => val > parseInt(user.value)) :Testing for greater than operator
+  (val) => val > parseInt(user.value) :
+  const callback = (val)=>{
+    return val>parseInt(user.value) 
+  }
+  </textarea>
+
+  <h3>User_input</h3>
   <input type="text" id="User_input" />
+  
+
+
 
 
   <h3>Result Div</h3>
@@ -59,7 +78,7 @@
     const user = document.getElementById("User_input")
 
     button_1.addEventListener('click', () => {
-     const result = myEvery(JSON.parse(input.value), (val) => val < parseInt(user.value));
+     const result = myEvery(JSON.parse(input.value), (val) => val > parseInt(user.value));
      // const result = myEvery(JSON.parse(input.value), (val) => val % 2 === 0);
       output.value = result;
     });
