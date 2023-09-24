@@ -16,7 +16,7 @@
 
 <body>
     <h3>Input Div</h3>
-    <textarea id="input">{"key1": "Apple", "key2": "Banana", "key3": "Orange", "key4": "Apple", "key5": "Grapes"}</textarea>
+    <textarea id="input">{"key1": "Apple", "key2": "Banana", "key3": "Orange", "key4": "Grapes"}</textarea>
 
     <h3>Argument</h3>
     <textarea id="argument" disabled>
@@ -44,7 +44,7 @@ This function grabs the keys from the given object and returns them as an array.
         btn.addEventListener("click", () => {
             const obj = JSON.parse(input.value);
             const grabbedKeys = grabKeys(obj);
-            output.value = `Keys in the object: ${grabbedKeys.join(', ')}`;
+            output.value = `Keys in the object: {${grabbedKeys.join(', ')}} `;
         });
     </script>
 </body>

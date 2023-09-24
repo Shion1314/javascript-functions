@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myLastIndexOf()</title>
+    <style>
+        textarea {
+            display: block;
+            height: 100px;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Input Div</h3>
+    <textarea id="input">["Apple", "Banana", "Orange", "Apple", "Grapes"]</textarea>
+
+    <h3>User Input</h3>
+    <textarea id="userInput">"Apple"</textarea>
+
+    <h3>Argument</h3>
+    <textarea id="argument" disabled>
+Returns the index of the last occurrence of the specified value, or -1 if the value is not found.
+array.lastIndexOf(element, fromIndex)
+
+array: ["Apple", "Banana", "Orange", "Apple", "Grapes"]
+element: user input
+fromIndex: searching backward for element in array
+    </textarea>
+
+    <h3>Output</h3>
+    <textarea id="output" readonly></textarea>
+
+    <button id="btn">Run myLastIndexOf()</button>
+
+    <script>
+        const input = document.getElementById("input");
+        const userInput = document.getElementById("userInput");
+        const output = document.getElementById("output");
+        const btn = document.getElementById("btn");
+
+        function myLastIndexOf(array, element, fromIndex = array.length - 1) {
+            for (let i = fromIndex; i >= 0; i--) {
+                if (array[i] === element) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        btn.addEventListener("click", () => {
+            const array = JSON.parse(input.value);
+            const elementToFind = JSON.parse(userInput.value);
+
+            const lastIndex = myLastIndexOf(array, elementToFind);
+            output.value = `Last index of ${elementToFind} is: ${lastIndex}`;
+        });
+    </script>
+</body>
+
+</html>
