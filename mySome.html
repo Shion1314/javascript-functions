@@ -3,7 +3,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mySome()</title>
+  <style> 
+  button {
+    height: 50px ;
+    width: 50%;
+    background-color: #080d10;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  } 
+  input {
+    position : center;
+    display: block;
+    height: 50px;
+    margin-bottom: 1rem;
+    width: 50%;
+  }
 
+  
+  </style>
   </head>
   <body>
     <h3>Input Div</h3>
@@ -17,8 +36,43 @@
     <input type="text"id="output" readonly></input>
 
     <button id="button_1">mySome()</button>
-    <script src="mySome.js"></script>
-    <link rel="stylesheet" href="mySome.css">
+    <!-- <script src="mySome.js"></script>
+    <link rel="stylesheet" href="mySome.css"> -->
+
+    <script>
+      // const mySome=(arr,user,str) =>{
+//     for (let i = 0; i < arr.length; i++){
+//         if(arr[i]===user){
+//             return true;
+//         }
+//     }
+//     return false;
+
+// }
+
+const mySome = (arr, callback) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i], i, arr) === true) {
+      return true;
+    }
+  }
+  return false;
+};
+
+  const input = document.getElementById("input");
+  const output = document.getElementById("output");
+  const button_1 = document.getElementById("button_1");
+  const user = document.getElementById("User_input")
+  button_1.addEventListener('click', () => {
+  
+    const result =mySome(input.value, (val) => val === user.value);
+    output.value = result;
+  });
+  
+    </script>
+
+
+
 
   </body>
 </html>
