@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grabValues</title>
+    <style>
+        textarea {
+            display: block;
+            height: 100px;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Input Div</h3>
+    <textarea id="input">{"key1": "Apple", "key2": "Banana", "key3": "Orange", "key4": "Grapes"}</textarea>
+    <h3>Argument</h3>
+    <textarea id="argument" style="height: 150px;" disabled>
+Return all the values in the array.
+function grabValues(obj) {
+    const values = [];
+    for (let key in obj) {
+        values.push(obj[key]);
+    }
+    return values;
+}
+    </textarea>
+    <h3>Output</h3>
+    <textarea id="output" readonly></textarea>
+    <button id="btn">Run grabValues()</button>
+
+    <script>
+        function grabValues(obj) {
+            const values = [];
+            for (let key in obj) {
+                values.push(obj[key]);
+            }
+            return values;
+        }
+
+        const input = document.getElementById("input");
+        const output = document.getElementById("output");
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener("click", () => {
+            const obj = JSON.parse(input.value);
+            const grabbedValues = grabValues(obj);
+            output.value = `Values in the object: ${grabbedValues.join(', ')}`;
+        });
+    </script>
+</body>
+
+</html>
