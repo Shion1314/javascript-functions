@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>myEvery()</title>
+  <style>
+    button {
+      height: 50px;
+      width: 50%;
+      background-color: #080d10;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    input {
+      position: center;
+      display: block;
+      height: 50px;
+      margin-bottom: 1rem;
+      width: 50%;
+    }
+    textarea{
+      height:150px;
+      width: 55%;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Input Div</h3>
+  <input type="text" id="input" value="[1, 2, 3, 4, 5]"></input>
+
+
+  <h3> Arugment Div</h3>
+  <textarea >
+  This function take in an array and a function, the function decide which operator to run
+  mySome(array,(val)=>val>user_input) : mySome(array, callback)
+  mySome(JSON.parse(input.value), (val) => val > parseInt(user.value)) :Testing for greater than operator
+  (val) => val > parseInt(user.value) :
+  const callback = (val)=>{
+    return val>parseInt(user.value) 
+  }
+  </textarea>
+
+  <h3>User_input</h3>
+  <input type="text" id="User_input" value=1 />
+  
+
+  <h3>Result Div</h3>
+  <input type="text" id="output" readonly></input>
+
+  <button id="button_1">myEvery()</button>
+  <!-- <script src="myEvery.js"></script>
+    <link rel="stylesheet" href="mySome.css"> -->
+
+  <script>
+    const myEvery = (arr, callback) => {
+      var result = true;
+      for (let i = 0; i < arr.length; i++) {
+        if (callback(arr[i]) !== true) {
+          result = false;
+        }
+      }
+      return result;
+    };
+
+
+
+    const input = document.getElementById("input");
+    const output = document.getElementById("output");
+    const button_1 = document.getElementById("button_1");
+    const user = document.getElementById("User_input")
+
+    button_1.addEventListener('click', () => {
+     const result = myEvery(JSON.parse(input.value), (val) => val > parseInt(user.value));
+     // const result = myEvery(JSON.parse(input.value), (val) => val % 2 === 0);
+      output.value = result;
+    });
+  </script>
+
+</body>
+
+</html>

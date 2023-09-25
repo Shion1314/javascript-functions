@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>myReduce()</title>
+  <style>
+    button {
+      height: 50px;
+      width: 50%;
+      background-color: #080d10;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    input {
+      position: center;
+      display: block;
+      height: 50px;
+      margin-bottom: 1rem;
+      width: 50%;
+    }
+    textarea{
+      height:50px;
+      width:50%;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Input Div</h3>
+  <input type="text" id="input" value="[1, 2, 3, 4, 5]"></input>
+
+  <h3>User_input</h3>
+  <input type="text" id="User_input"> </input>
+
+  <h3> Arugment Div</h3>
+  <textarea >
+  This function take in an array and inital function enter by user
+  myReduce(array,initial_value) and return the result 
+  </textarea>
+
+
+  <h3>Result Div</h3>
+  <input type="text" id="output" readonly></input>
+
+  <button id="button_1">myReduce()</button>
+  <!-- <script src="myEvery.js"></script>
+    <link rel="stylesheet" href="mySome.css"> -->
+
+  <script>
+
+    const myReduce= (arr,inital_val)=>{
+        for(let i=0; i<arr.length;i++){
+            inital_val+=arr[i];
+        }
+        return inital_val;
+    }
+  
+
+
+    const input = document.getElementById("input");
+    const output = document.getElementById("output");
+    const button_1 = document.getElementById("button_1");
+    const user = document.getElementById("User_input")
+    button_1.addEventListener('click', () => {
+        result=myReduce(JSON.parse(input.value),parseInt(user.value));
+        console.log(result);
+        output.value=result;
+    });
+
+
+
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>
