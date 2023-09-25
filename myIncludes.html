@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>myIndexOf()</title>
+    <title>myIncludes()</title>
     <style>
       body{
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -30,7 +30,7 @@
   </head>
 
   <body>
-    <h1>myIndexOf Function</h1>
+    <h1>myIncludes Function</h1>
     <h3>Input</h3>
     <textarea id="input">[1, 2, 3]</textarea>
 
@@ -40,16 +40,16 @@
     <h3>Output</h3>
     <textarea id="output" readonly></textarea>
 
-    <button id="btn">Run myIndexOf()</button>
+    <button id="btn">Run myIncludes()</button>
 
     <script>
-      const myIndexOf = (array, target) => {
+      const myIncludes = (array, target) => {
         for (let i=0; i < array.length; i++){
             if (array[i] == target){
-                return i;
+                return true;
             }
         }
-        return -1;
+        return false;
       };
 
       const input = document.getElementById("input");
@@ -61,7 +61,7 @@
         const array = JSON.parse(input.value);
         const target = argument.value;
 
-        output.value = myIndexOf(array, target);
+        output.value = myIncludes(array, target);
       });
     </script>
   </body>
